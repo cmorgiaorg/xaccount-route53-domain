@@ -5,16 +5,16 @@ import { StringParameter } from "aws-cdk-lib/aws-ssm";
 import { Construct } from "constructs";
 import { SSMParameterReader } from "xregion-ssm-parameter-reader";
 
-export interface CrossRegionAccountSubZoneConfig {
-    primary: boolean;
-    primaryRegion: string;
-    secondaryRegion: string;
-    cicdAccount?: string;
+export interface ICrossRegionAccountSubZoneConfig {
+    readonly primary: boolean;
+    readonly primaryRegion: string;
+    readonly secondaryRegion: string;
+    readonly cicdAccount?: string;
 }
 
 export class CrossRegionAccountSubZone extends Construct {
-  protected config: CrossRegionAccountSubZoneConfig;
-    constructor(scope: Construct, id: string, config: CrossRegionAccountSubZoneConfig) {
+  protected config: ICrossRegionAccountSubZoneConfig;
+    constructor(scope: Construct, id: string, config: ICrossRegionAccountSubZoneConfig) {
         super(scope, id);
         this.config = config;
     }
