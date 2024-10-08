@@ -28,9 +28,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   //   mavenGroupId: 'io.github.cmorgia',
   //   //mavenEndpoint: 'https://s01.oss.sonatype.org',
   // },
-  deps: [ 'xregion-ssm-parameter-reader'],                /* Runtime dependencies of this module. */
+  deps: ['xregion-ssm-parameter-reader'], /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  devDeps: [ 'xregion-ssm-parameter-reader'],             /* Build dependencies for this module. */
+  devDeps: ['xregion-ssm-parameter-reader'], /* Build dependencies for this module. */
   // packageName: undefined,  /* The "name" in package.json. */
 });
 project.synth();
