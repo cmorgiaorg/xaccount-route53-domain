@@ -26,6 +26,10 @@ export class CrossRegionAccountSubZone extends Construct {
     this.intermediateZoneName = `${intermediateZonePrefix}.${this.parentZoneName}`;
   }
 
+  public retrieveIntermediateZoneName() {
+    return this.intermediateZoneName;
+  }
+
   public setupCommon(accounts:string[]) {
     const principals = Object.values(accounts).map( account => new AccountPrincipal(account));
 

@@ -57,6 +57,7 @@ new CrossRegionAccountSubZone(scope: Construct, id: string, parentZoneName: stri
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.retrieveIntermediateZoneName">retrieveIntermediateZoneName</a></code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon">setupCommon</a></code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.setupDns">setupDns</a></code> | *No description.* |
 
@@ -69,6 +70,12 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `retrieveIntermediateZoneName` <a name="retrieveIntermediateZoneName" id="xaccount-route53-domain.CrossRegionAccountSubZone.retrieveIntermediateZoneName"></a>
+
+```typescript
+public retrieveIntermediateZoneName(): string
+```
 
 ##### `setupCommon` <a name="setupCommon" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon"></a>
 
