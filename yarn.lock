@@ -5062,10 +5062,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@^5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.2.tgz#d1de67b6bef77c41823f822df8f0b3bcff60a5a0"
-  integrity sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==
+typescript@^5.6.3:
+  version "5.6.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.3.tgz#5f3449e31c9d94febb17de03cc081dd56d81db5b"
+  integrity sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==
 
 typescript@next:
   version "5.7.0-dev.20241008"
@@ -5294,10 +5294,10 @@ xmlchars@^2.2.0:
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
-xregion-ssm-parameter-reader@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/xregion-ssm-parameter-reader/-/xregion-ssm-parameter-reader-0.0.2.tgz#0d4dd142b3480e942d5379707db35375e5e91a59"
-  integrity sha512-O+TJvhIUSs2uw0ZahOVeutbTSKa+fK4CdcANrMbAbQcmwxpcfwm/8IeZCu04iur9xWQ7+hu+hs51freYyUgeew==
+xregion-ssm-parameter-reader@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/xregion-ssm-parameter-reader/-/xregion-ssm-parameter-reader-0.0.3.tgz#043185fe4abb9a44fc75a47781e971fd884e6326"
+  integrity sha512-JrwNnxl+/I1qrwioqpzjeH9wlwxCXww0/d2TGitg1MwRKx1wwGV+y6bj28scGAXV0cwyFVPzKyu/44n/siaJJg==
 
 xtend@~4.0.1:
   version "4.0.2"
