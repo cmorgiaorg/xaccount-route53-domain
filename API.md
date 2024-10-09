@@ -43,6 +43,7 @@ new CrossRegionAccountSubZone(scope: Construct, id: string, config: ICrossRegion
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon">setupCommon</a></code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.setupDns">setupDns</a></code> | *No description.* |
 
 ---
@@ -54,6 +55,24 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `setupCommon` <a name="setupCommon" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon"></a>
+
+```typescript
+public setupCommon(accounts: string[], intermediateZonePrefix: string): void
+```
+
+###### `accounts`<sup>Required</sup> <a name="accounts" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon.parameter.accounts"></a>
+
+- *Type:* string[]
+
+---
+
+###### `intermediateZonePrefix`<sup>Required</sup> <a name="intermediateZonePrefix" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon.parameter.intermediateZonePrefix"></a>
+
+- *Type:* string
+
+---
 
 ##### `setupDns` <a name="setupDns" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns"></a>
 
@@ -133,10 +152,32 @@ The tree node.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneId">parentZoneId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneName">parentZoneName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.primary">primary</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.primaryRegion">primaryRegion</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.secondaryRegion">secondaryRegion</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.cicdAccount">cicdAccount</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `parentZoneId`<sup>Required</sup> <a name="parentZoneId" id="xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneId"></a>
+
+```typescript
+public readonly parentZoneId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `parentZoneName`<sup>Required</sup> <a name="parentZoneName" id="xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneName"></a>
+
+```typescript
+public readonly parentZoneName: string;
+```
+
+- *Type:* string
 
 ---
 

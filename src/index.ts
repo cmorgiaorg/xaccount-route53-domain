@@ -24,27 +24,27 @@ export class CrossRegionAccountSubZone extends Construct {
   public setupCommon(accounts:string[], intermediateZonePrefix:string) {
     const principals = Object.values(accounts).map( account => new AccountPrincipal(account));
     const intermediateZoneName = `${intermediateZonePrefix}.${this.config.parentZoneName}`;
-        const intermediateZone = new PublicHostedZone(this, 'HostedZone', {
-            zoneName: intermediateZoneName,
-        });
-        const crossAccountRole = new Role(this, 'ZoneDelegationRole', {
-            // The role name must be predictable
-            roleName: 'ZoneDelegationRole',
-            // The other account
-            assumedBy: new CompositePrincipal(...principals),
-        });
-        intermediateZone.grantDelegation(crossAccountRole);
+    const intermediateZone = new PublicHostedZone(this, 'HostedZone', {
+      zoneName: intermediateZoneName,
+    });
+    const crossAccountRole = new Role(this, 'ZoneDelegationRole', {
+      // The role name must be predictable
+      roleName: 'ZoneDelegationRole',
+      // The other account
+      assumedBy: new CompositePrincipal(...principals),
+    });
+    intermediateZone.grantDelegation(crossAccountRole);
 
-        new ZoneDelegationRecord(this,'zoneDelegation',{
-            zone: PublicHostedZone.fromHostedZoneAttributes(this,'parentZone',{
-                hostedZoneId: this.config.parentZoneId,
-                zoneName: this.config.parentZoneName
-            }),
-            recordName: intermediateZonePrefix,
-            nameServers: intermediateZone.hostedZoneNameServers!
-        });
+    new ZoneDelegationRecord(this, 'zoneDelegation', {
+      zone: PublicHostedZone.fromHostedZoneAttributes(this, 'parentZone', {
+        hostedZoneId: this.config.parentZoneId,
+        zoneName: this.config.parentZoneName,
+      }),
+      recordName: intermediateZonePrefix,
+      nameServers: intermediateZone.hostedZoneNameServers!,
+    });
   }
-  
+
   public setupDns(envName: string, parentZoneName: string):IPublicHostedZone {
     var subZone: IPublicHostedZone;
 
