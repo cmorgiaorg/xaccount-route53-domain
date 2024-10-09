@@ -15,18 +15,22 @@ export interface ICrossRegionAccountSubZoneConfig {
 export class CrossRegionAccountSubZone extends Construct {
   protected parentZoneName: string;
   protected parentZoneId: string;
+  protected intermediateZoneName: string;
+  protected intermediateZonePrefix: string;
 
-  constructor(scope: Construct, id: string, parentZoneName: string, parentZoneId: string) {
+  constructor(scope: Construct, id: string, parentZoneName: string, parentZoneId: string,intermediateZonePrefix:string) {
     super(scope, id);
     this.parentZoneName = parentZoneName;
     this.parentZoneId = parentZoneId;
+    this.intermediateZonePrefix = intermediateZonePrefix;
+    this.intermediateZoneName = `${intermediateZonePrefix}.${this.parentZoneName}`;
   }
 
-  public setupCommon(accounts:string[], intermediateZonePrefix:string) {
+  public setupCommon(accounts:string[]) {
     const principals = Object.values(accounts).map( account => new AccountPrincipal(account));
-    const intermediateZoneName = `${intermediateZonePrefix}.${this.parentZoneName}`;
+    
     const intermediateZone = new PublicHostedZone(this, 'HostedZone', {
-      zoneName: intermediateZoneName,
+      zoneName: this.intermediateZoneName,
     });
     const crossAccountRole = new Role(this, 'ZoneDelegationRole', {
       // The role name must be predictable
@@ -41,7 +45,7 @@ export class CrossRegionAccountSubZone extends Construct {
         hostedZoneId: this.parentZoneId,
         zoneName: this.parentZoneName,
       }),
-      recordName: intermediateZonePrefix,
+      recordName: this.intermediateZonePrefix,
       nameServers: intermediateZone.hostedZoneNameServers!,
     });
   }
