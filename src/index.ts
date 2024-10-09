@@ -45,7 +45,7 @@ export class CrossRegionAccountSubZone extends Construct {
     intermediateZone.grantDelegation(crossAccountRole);
 
     new ZoneDelegationRecord(scope, 'zoneDelegation', {
-      zone: PublicHostedZone.fromHostedZoneAttributes(this, 'parentZone', {
+      zone: PublicHostedZone.fromHostedZoneAttributes(scope, 'parentZone', {
         hostedZoneId: this.parentZoneId,
         zoneName: this.parentZoneName,
       }),
