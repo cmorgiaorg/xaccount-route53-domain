@@ -10,6 +10,8 @@ describe('CrossRegionAccountSubZone', () => {
       primary: false,
       primaryRegion: 'eu-central-1',
       secondaryRegion: 'eu-west-1',
+      parentZoneName: 'example.com',
+      parentZoneId: 'XXXXXX',
     });
     subZone.setupDns('dev', 'example.com');
     const template = Template.fromStack(stack);
