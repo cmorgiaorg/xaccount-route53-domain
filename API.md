@@ -80,8 +80,14 @@ public retrieveIntermediateZoneName(): string
 ##### `setupCommon` <a name="setupCommon" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon"></a>
 
 ```typescript
-public setupCommon(accounts: string[]): void
+public setupCommon(scope: Construct, accounts: string[]): void
 ```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
 
 ###### `accounts`<sup>Required</sup> <a name="accounts" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon.parameter.accounts"></a>
 
@@ -92,8 +98,14 @@ public setupCommon(accounts: string[]): void
 ##### `setupDns` <a name="setupDns" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns"></a>
 
 ```typescript
-public setupDns(envName: string, config: ICrossRegionAccountSubZoneConfig): IPublicHostedZone
+public setupDns(scope: Construct, envName: string, config: ICrossRegionAccountSubZoneConfig): IPublicHostedZone
 ```
+
+###### `scope`<sup>Required</sup> <a name="scope" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
 
 ###### `envName`<sup>Required</sup> <a name="envName" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns.parameter.envName"></a>
 

@@ -30,13 +30,13 @@ export class CrossRegionAccountSubZone extends Construct {
     return this.intermediateZoneName;
   }
 
-  public setupCommon(accounts:string[]) {
+  public setupCommon(scope: Construct, accounts:string[]) {
     const principals = Object.values(accounts).map( account => new AccountPrincipal(account));
 
-    const intermediateZone = new PublicHostedZone(this, 'HostedZone', {
+    const intermediateZone = new PublicHostedZone(scope, 'HostedZone', {
       zoneName: this.intermediateZoneName,
     });
-    const crossAccountRole = new Role(this, 'ZoneDelegationRole', {
+    const crossAccountRole = new Role(scope, 'ZoneDelegationRole', {
       // The role name must be predictable
       roleName: 'ZoneDelegationRole',
       // The other account
@@ -44,7 +44,7 @@ export class CrossRegionAccountSubZone extends Construct {
     });
     intermediateZone.grantDelegation(crossAccountRole);
 
-    new ZoneDelegationRecord(this, 'zoneDelegation', {
+    new ZoneDelegationRecord(scope, 'zoneDelegation', {
       zone: PublicHostedZone.fromHostedZoneAttributes(this, 'parentZone', {
         hostedZoneId: this.parentZoneId,
         zoneName: this.parentZoneName,
@@ -54,35 +54,35 @@ export class CrossRegionAccountSubZone extends Construct {
     });
   }
 
-  public setupDns(envName: string, config:ICrossRegionAccountSubZoneConfig):IPublicHostedZone {
+  public setupDns(scope: Construct, envName: string, config:ICrossRegionAccountSubZoneConfig):IPublicHostedZone {
     var subZone: IPublicHostedZone;
 
     if (config.primary) {
-      const subZoneId = new SSMParameterReader(this, 'subZoneIdParam', { parameterName: `${envName}SubZoneId-${config.secondaryRegion}`, region: config.secondaryRegion }).retrieveParameterValue();
-      subZone = PublicHostedZone.fromPublicHostedZoneAttributes(this, 'SubZone', { hostedZoneId: subZoneId, zoneName: `${envName}.${this.parentZoneName}` });
+      const subZoneId = new SSMParameterReader(scope, 'subZoneIdParam', { parameterName: `${envName}SubZoneId-${config.secondaryRegion}`, region: config.secondaryRegion }).retrieveParameterValue();
+      subZone = PublicHostedZone.fromPublicHostedZoneAttributes(scope, 'SubZone', { hostedZoneId: subZoneId, zoneName: `${envName}.${this.parentZoneName}` });
 
     } else {
 
-      subZone = new PublicHostedZone(this, 'SubZone', {
+      subZone = new PublicHostedZone(scope, 'SubZone', {
         zoneName: `${envName}.${this.parentZoneName}`,
       });
-      new StringParameter(this, 'subZoneIdParam', {
+      new StringParameter(scope, 'subZoneIdParam', {
         parameterName: `${envName}SubZoneId-${config.primaryRegion}`, //TODO should be primary
         stringValue: subZone.hostedZoneId,
       });
 
       // import the delegation role by constructing the roleArn
-      const delegationRoleArn = Stack.of(this).formatArn({
+      const delegationRoleArn = Stack.of(scope).formatArn({
         region: '', // IAM is global in each partition
         service: 'iam',
         account: config.cicdAccount,
         resource: 'role',
         resourceName: 'ZoneDelegationRole',
       });
-      const delegationRole = Role.fromRoleArn(this, 'DelegationRole', delegationRoleArn);
+      const delegationRole = Role.fromRoleArn(scope, 'DelegationRole', delegationRoleArn);
 
       // create the record
-      new CrossAccountZoneDelegationRecord(this, 'delegate', {
+      new CrossAccountZoneDelegationRecord(scope, 'delegate', {
         delegatedZone: subZone,
         parentHostedZoneName: this.parentZoneName, // or you can use parentHostedZoneId
         delegationRole,
