@@ -9,7 +9,7 @@
 ```typescript
 import { CrossRegionAccountSubZone } from 'xaccount-route53-domain'
 
-new CrossRegionAccountSubZone(scope: Construct, id: string, parentZoneName: string, parentZoneId: string)
+new CrossRegionAccountSubZone(scope: Construct, id: string, parentZoneName: string, parentZoneId: string, intermediateZonePrefix: string)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -18,6 +18,7 @@ new CrossRegionAccountSubZone(scope: Construct, id: string, parentZoneName: stri
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.parentZoneName">parentZoneName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.parentZoneId">parentZoneId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.intermediateZonePrefix">intermediateZonePrefix</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -45,6 +46,12 @@ new CrossRegionAccountSubZone(scope: Construct, id: string, parentZoneName: stri
 
 ---
 
+##### `intermediateZonePrefix`<sup>Required</sup> <a name="intermediateZonePrefix" id="xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.intermediateZonePrefix"></a>
+
+- *Type:* string
+
+---
+
 #### Methods <a name="Methods" id="Methods"></a>
 
 | **Name** | **Description** |
@@ -66,18 +73,12 @@ Returns a string representation of this construct.
 ##### `setupCommon` <a name="setupCommon" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon"></a>
 
 ```typescript
-public setupCommon(accounts: string[], intermediateZonePrefix: string): void
+public setupCommon(accounts: string[]): void
 ```
 
 ###### `accounts`<sup>Required</sup> <a name="accounts" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon.parameter.accounts"></a>
 
 - *Type:* string[]
-
----
-
-###### `intermediateZonePrefix`<sup>Required</sup> <a name="intermediateZonePrefix" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupCommon.parameter.intermediateZonePrefix"></a>
-
-- *Type:* string
 
 ---
 

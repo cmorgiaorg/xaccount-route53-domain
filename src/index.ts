@@ -18,7 +18,7 @@ export class CrossRegionAccountSubZone extends Construct {
   protected intermediateZoneName: string;
   protected intermediateZonePrefix: string;
 
-  constructor(scope: Construct, id: string, parentZoneName: string, parentZoneId: string,intermediateZonePrefix:string) {
+  constructor(scope: Construct, id: string, parentZoneName: string, parentZoneId: string, intermediateZonePrefix:string) {
     super(scope, id);
     this.parentZoneName = parentZoneName;
     this.parentZoneId = parentZoneId;
@@ -28,7 +28,7 @@ export class CrossRegionAccountSubZone extends Construct {
 
   public setupCommon(accounts:string[]) {
     const principals = Object.values(accounts).map( account => new AccountPrincipal(account));
-    
+
     const intermediateZone = new PublicHostedZone(this, 'HostedZone', {
       zoneName: this.intermediateZoneName,
     });

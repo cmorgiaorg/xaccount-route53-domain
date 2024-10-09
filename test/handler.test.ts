@@ -6,7 +6,7 @@ describe('CrossRegionAccountSubZone', () => {
   test('synth', () => {
     const app = new App();
     const stack = new Stack(app, 'CrossRegionAccountSubZoneStack');
-    const subZone = new CrossRegionAccountSubZone(stack, 'CrossRegionAccountSubZone', 'example.com', 'XXXXXX','abclaudio');
+    const subZone = new CrossRegionAccountSubZone(stack, 'CrossRegionAccountSubZone', 'example.com', 'XXXXXX', 'abclaudio');
     subZone.setupDns('dev', {
       primary: false,
       primaryRegion: 'us-east-1',
