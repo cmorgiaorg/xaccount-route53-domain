@@ -6,12 +6,12 @@ describe('CrossRegionAccountSubZone', () => {
   test('synth', () => {
     const app = new App();
     const stack = new Stack(app, 'CrossRegionAccountSubZoneStack');
-    const subZone = new CrossRegionAccountSubZone(stack, 'CrossRegionAccountSubZone', 'example.com','XXXXXX');
+    const subZone = new CrossRegionAccountSubZone(stack, 'CrossRegionAccountSubZone', 'example.com', 'XXXXXX');
     subZone.setupDns('dev', {
       primary: false,
       primaryRegion: 'us-east-1',
       secondaryRegion: 'eu-central-1',
-      cicdAccount: 'xxxxxxxx'
+      cicdAccount: 'xxxxxxxx',
     });
     const template = Template.fromStack(stack);
     template.hasResource('AWS::Route53::HostedZone', {});

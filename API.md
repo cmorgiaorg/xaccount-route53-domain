@@ -9,14 +9,15 @@
 ```typescript
 import { CrossRegionAccountSubZone } from 'xaccount-route53-domain'
 
-new CrossRegionAccountSubZone(scope: Construct, id: string, config: ICrossRegionAccountSubZoneConfig)
+new CrossRegionAccountSubZone(scope: Construct, id: string, parentZoneName: string, parentZoneId: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.config">config</a></code> | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig">ICrossRegionAccountSubZoneConfig</a></code> | *No description.* |
+| <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.parentZoneName">parentZoneName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.parentZoneId">parentZoneId</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -32,9 +33,15 @@ new CrossRegionAccountSubZone(scope: Construct, id: string, config: ICrossRegion
 
 ---
 
-##### `config`<sup>Required</sup> <a name="config" id="xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.config"></a>
+##### `parentZoneName`<sup>Required</sup> <a name="parentZoneName" id="xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.parentZoneName"></a>
 
-- *Type:* <a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig">ICrossRegionAccountSubZoneConfig</a>
+- *Type:* string
+
+---
+
+##### `parentZoneId`<sup>Required</sup> <a name="parentZoneId" id="xaccount-route53-domain.CrossRegionAccountSubZone.Initializer.parameter.parentZoneId"></a>
+
+- *Type:* string
 
 ---
 
@@ -77,7 +84,7 @@ public setupCommon(accounts: string[], intermediateZonePrefix: string): void
 ##### `setupDns` <a name="setupDns" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns"></a>
 
 ```typescript
-public setupDns(envName: string, parentZoneName: string): IPublicHostedZone
+public setupDns(envName: string, config: ICrossRegionAccountSubZoneConfig): IPublicHostedZone
 ```
 
 ###### `envName`<sup>Required</sup> <a name="envName" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns.parameter.envName"></a>
@@ -86,9 +93,9 @@ public setupDns(envName: string, parentZoneName: string): IPublicHostedZone
 
 ---
 
-###### `parentZoneName`<sup>Required</sup> <a name="parentZoneName" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns.parameter.parentZoneName"></a>
+###### `config`<sup>Required</sup> <a name="config" id="xaccount-route53-domain.CrossRegionAccountSubZone.setupDns.parameter.config"></a>
 
-- *Type:* string
+- *Type:* <a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig">ICrossRegionAccountSubZoneConfig</a>
 
 ---
 
@@ -152,32 +159,10 @@ The tree node.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneId">parentZoneId</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneName">parentZoneName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.primary">primary</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.primaryRegion">primaryRegion</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.secondaryRegion">secondaryRegion</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.cicdAccount">cicdAccount</a></code> | <code>string</code> | *No description.* |
-
----
-
-##### `parentZoneId`<sup>Required</sup> <a name="parentZoneId" id="xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneId"></a>
-
-```typescript
-public readonly parentZoneId: string;
-```
-
-- *Type:* string
-
----
-
-##### `parentZoneName`<sup>Required</sup> <a name="parentZoneName" id="xaccount-route53-domain.ICrossRegionAccountSubZoneConfig.property.parentZoneName"></a>
-
-```typescript
-public readonly parentZoneName: string;
-```
-
-- *Type:* string
 
 ---
 
