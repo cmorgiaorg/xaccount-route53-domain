@@ -47,7 +47,7 @@
     },
     {
       "name": "jest-junit",
-      "version": "^15",
+      "version": "^16",
       "type": "build"
     },
     {
@@ -95,7 +95,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.161.1",
+      "version": "^2.183.0",
       "type": "peer"
     },
     {

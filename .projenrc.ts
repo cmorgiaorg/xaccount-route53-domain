@@ -7,7 +7,7 @@ keywords.push('cdk', 'typescript', 'aws');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Claudio Morgia',
   authorAddress: '214524+cmorgia@users.noreply.github.com',
-  cdkVersion: '2.161.1',
+  cdkVersion: '2.183.0',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.5.0',
   name: projectName,
